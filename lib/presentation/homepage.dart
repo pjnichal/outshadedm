@@ -209,28 +209,32 @@ class _HomePageState extends State<HomePage> {
                                                                       seconds:
                                                                           1),
                                                             ).show(context);
+                                                          } else {
+                                                            final userDetail =
+                                                                UserDetail(
+                                                                    name:
+                                                                        e.name,
+                                                                    age: age
+                                                                        .text,
+                                                                    gender:
+                                                                        gender!,
+                                                                    id: e.id);
+                                                            final box = Boxes
+                                                                .getUserDetail();
+                                                            box.put(
+                                                                userDetail.id,
+                                                                userDetail);
+                                                            Navigator.pop(
+                                                                context);
+                                                            Navigator.push(
+                                                                context,
+                                                                MaterialPageRoute(
+                                                                    builder: (_) =>
+                                                                        UserDetailScreen(
+                                                                          id: e
+                                                                              .id,
+                                                                        )));
                                                           }
-                                                          final userDetail =
-                                                              UserDetail(
-                                                                  name: e.name,
-                                                                  age: age.text,
-                                                                  gender:
-                                                                      gender!,
-                                                                  id: e.id);
-                                                          final box = Boxes
-                                                              .getUserDetail();
-                                                          box.put(userDetail.id,
-                                                              userDetail);
-                                                          Navigator.pop(
-                                                              context);
-                                                          Navigator.push(
-                                                              context,
-                                                              MaterialPageRoute(
-                                                                  builder: (_) =>
-                                                                      UserDetailScreen(
-                                                                        id: e
-                                                                            .id,
-                                                                      )));
                                                         },
                                                         child: const Text(
                                                             "Submit"))
